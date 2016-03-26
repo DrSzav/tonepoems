@@ -1,0 +1,99 @@
+.center{
+  width: 50%;
+  margin: 0 auto;
+}
+.fill{
+  width: 100%;
+}
+.centerText{
+text-align: center;
+}
+.bigFont{
+  font-size: 20px;
+}
+.biggerFont{
+  font-size: 30px;
+}
+.letterNote{
+    white-space: pre;
+}
+.letterHolder{
+  display: inline-table;
+
+}
+.nowPlaying{
+  color:blue;
+  font-weight: bold;
+  font-size: 50px;
+}
+.bpm{
+  float:right;
+}
+.oneControl{
+  float:left;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+
+#pauseButton{
+/*  border:3px gray solid; */
+
+}
+.hoverClass:hover{
+  cursor:pointer;
+}
+.button{
+  border-radius: 15px;
+  border: black 2px solid;
+  display:inline;
+  background-color: white;
+  float: right;
+  outline: none;
+  margin:10px;
+}
+input{
+  width: 200px;
+}
+#poemInput{
+  border-radius: 15px;
+  border: black 2px solid;
+  outline: none;
+  resize: none;
+}
+#bpmInput{
+  border-radius: 15px;
+  border: black 2px solid;
+  outline: none;
+  resize: none;
+  width: 85px;
+  padding: 5px;
+}
+
+#leftSide{
+  height: 100%;
+  width: 20%;
+}
+
+#homeScreen{
+  width:60%;
+  
+}
+
+#controls{
+  width:20%;
+  float:right;
+}
+
+
+.selectOptions{
+  background-color: white;
+  border: black 2px solid;
+  border-radius: 15px;
+  outline: none;
+}
+
+
+*{
+  font-family: monospace;
+  }

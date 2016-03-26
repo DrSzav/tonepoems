@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Tone Poems</title>
+        <link rel="shortcut icon image_src" href="favicon.ico">
+        <link rel="stylesheet" href="style2.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <!--
+        <script src="MIDI.js-master/inc/shim/Base64.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/inc/shim/Base64binary.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/inc/shim/WebAudioAPI.js" type="text/javascript"></script>
+
+        <script src="MIDI.js-master/js/midi/audioDetect.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/js/midi/gm.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/js/midi/loader.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/js/midi/plugin.audiotag.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/js/midi/plugin.webaudio.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/js/midi/plugin.webmidi.js" type="text/javascript"></script>
+
+        <script src="MIDI.js-master/js/util/dom_request_xhr.js" type="text/javascript"></script>
+        <script src="MIDI.js-master/js/util/dom_request_script.js" type="text/javascript"></script>
+-->
+        <script src="knockout-3.4.0.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="tonePoem.js" type="text/javascript" defer></script>
+    <!--    <script type="text/javascript">window.addEventListener("touchend", ios_unlock_sound, false);function ios_unlock_sound(event) {    var buffer = g_WebAudioContext.createBuffer(1, 1, 22050);    var source = g_WebAudioContext.createBufferSource();    source.buffer = buffer;    source.connect(g_WebAudioContext.destination);    source.noteOn(0);    window.removeEventListener("touchend", ios_unlock_sound, false);}</script>
+-->
+    </head>
+
+    <body>
+
+      <div id="homeScreen">
+
+      <div id="leftSide" class="">
+        <h1 class="centerText textGlow">Recent Tones</h1>
+        <div id="scrollUp" class="textGlow hugeFont centerText glowBlock" data-bind="event: { mouseover: scrollUp, mouseout: stopScroll}">
+          ^
+        </div>
+        <div id="recents" class="textGlow bigFont centerText boxGlow borders" data-bind="foreach: recents" >
+          <div class="listingBlock glowBlock" data-bind="click:
+            function(data){
+            $root.loadPoem(data.id);
+          }">
+          <span class="textGlow" data-bind="text:title"></span>
+        </br>
+          <span class="textGlow" data-bind="text:submitted"></span>
+            </div>
+        <span class="textGlow">...</span>
+      </br>
+
+        </div>
+        <div class="fadeout"></div>
+        <div id="scrollDown" data-bind="event: { mouseover: scrollDown , mouseout: stopScroll}" class="textGlow hugeFont centerText flipped glowBlock">
+          ^
+        </div>
+
+      </div>
+
+      <div id="mainBlock" class="center">
+
+          <h1 id="title" class="centerText textGlow hugeFont" data-bind="text:poemTitle"></h1>
+
+        <textarea id="poemInput" rows="10" cols="40"data-bind="value: words, valueUpdate: 'afterkeydown'" class="fill centerText bigFont boxGlow textGlow">
+
+        </textarea>
+        <div class = "biggerFont">
+          <button id="pauseButton" class="biggerFont button hoverClass boxGlow textGlow r" data-bind="text: pauseButton, click:playPause"></button>
+          <button id="saveButton" class="biggerFont button hoverClass boxGlow textGlow r" data-bind="click:savePoem, css: {disabledBooty:words().length < 1}">save</button>
+          <!-- AddToAny BEGIN -->
+          <div id="a2aShare" class="a2a_kit a2a_kit_size_32 a2a_default_style">
+
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_twitter"></a>
+          <a class="a2a_button_email"></a>
+          <a class="a2a_button_google_plus"></a>
+          <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+          </div>
+          <script async src="http://static.addtoany.com/menu/page.js"></script>
+          <!-- AddToAny END -->
+
+
+        </div>
+
+          <div id="poemDisplay" data-bind="foreach: letters" class="fill centerText biggerFont letterHolder">
+            <span data-bind="text: letter,css:{nowPlaying:on()} " class="letterNote"></span>
+
+          </div>
+
+      </div>
+
+      <div id="rightSide">
+        <div style="margin-bottom:10px;clear:both;display:flex;">
+          <div class="textGlow hoverClass boxGlow button glowBox" style="font-size:20px; padding:2px; float:right;" data-bind="click:loadAbout">
+              About
+          </div>
+
+              <form style="float:right;"action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                  <input type="hidden" name="cmd" value="_donations">
+                  <input type="hidden" name="business" value="szavio@gmail.com">
+                  <input type="hidden" name="lc" value="US">
+                  <input type="hidden" name="item_name" value="Tone Poems">
+                  <input type="hidden" name="no_note" value="0">
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_SM.gif:NonHostedGuest">
+                  <input class="boxGlow" style="padding:3px;" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+
+        </div>
+        <div id="controls">
+          <div class="bpm biggerFont oneControl textGlow"> BPM: <input id="bpmInput" type="Number" class="biggerFont textGlow boxGlow" data-bind="value:tempo, valueUpdate: 'afterkeydown'"> <input type="range" class="bpmInput biggerFont hoverClass" step="1" data-bind="value:tempo, valueUpdate: 'afterkeydown'" name="" min="1" max="999"/></div>
+          <div class="biggerFont oneControl textGlow"> Volume: <span class="textGlow" data-bind="text:volume"></span> <input class="hoverClass" data-bind="value: volume" type="range" min="0" max="10"/> </div>
+          <div class="biggerFont oneControl textGlow"> Key: <select class="biggerFont selectOptions hoverClass textGlow boxGlow" data-bind="options: keys,value: currentKey"></select> </div>
+          <div class="biggerFont oneControl textGlow"> Scale:<select class="biggerFont selectOptions hoverClass textGlow boxGlow" data-bind="options: scaleOptions, value: currentScale"></select> </div>
+          <button id="randomButton" class="biggerFont button hoverClass boxGlow textGlow" data-bind="click:randomizeNotes">Randomize Notes</button>
+        </div>
+    </div>
+</div>
+  <div id="blackout" class="overlay" style="display:none"></div>
+<div id="saveScreen" style="display:none" class="centerText">
+  <h1 class="centerText textGlow">Save</h1>
+
+<div data-bind="visible:shareLink().length == 0">
+ <span class="biggerFont textGlow">name your masterpiece: </span><input id="nameInput" type="text" class="biggerFont textGlow boxGlow" data-bind="value:titleSave, valueUpdate: 'afterkeydown', visible:shareLink().length == 0">
+</div>
+<div style="margin-top:15px;">
+  <button id="backButton" class="biggerFont button hoverClass boxGlow textGlow" data-bind="click:loadMain">Go Back!!!</button>
+  <button id="finalSave" class="biggerFont button hoverClass boxGlow textGlow" data-bind="click:finalSave, css: {disabledBooty:titleSave().length < 1},visible:shareLink().length == 0">save</button>
+
+</div>
+
+
+
+
+</div>
+
+<div id="about" style="display:none" class="centerText">
+  <h1 class="centerText textGlow">About</h1>
+    <span class="biggerFont textGlow">
+      Tone Poems is an evolving work that began as a thought: how can we hear words?
+      I want to create more unique digital experiences that push our innate human curiosity.
+      Beats coming soon, and smartphone compatibility!
+      If you want to support this site/help me with my vision, you can donate, or hire me to do some cool stuff for you!
+    </br>
+    </br>
+      Thoughts, feedback, work:
+    </br>
+      info@tonepoems.net
+    </br>
+    Thank You!
+    -Szavio
+      <button id="backButton" class="biggerFont button hoverClass boxGlow textGlow" data-bind="click:loadMain">Go Back!!!</button>
+    </span>
+  </div>
+
+
+    </body>
+</html>

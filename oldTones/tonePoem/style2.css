@@ -1,0 +1,124 @@
+.center{
+  width: 50%;
+  margin: 0 auto;
+}
+.fill{
+  width: 100%;
+}
+.centerText{
+text-align: center;
+}
+.bigFont{
+  font-size: 20px;
+}
+
+.biggerFont{
+  font-size: 30px;
+}
+
+.letterNote{
+    white-space: pre;
+    font-size: 40px;
+}
+
+.letterHolder{
+  display: inline-table;
+
+}
+.nowPlaying{
+  color:blue;
+  font-weight: bold;
+  font-size: 60px;
+}
+.bpm{
+  float:right;
+}
+.oneControl{
+  float:left;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+
+#controls{
+  width:20%;
+  float:right;
+}
+#pauseButton{
+/*  border:3px gray solid; */
+
+}
+.hoverClass:hover{
+  cursor:pointer;
+}
+.r{
+  float:right;
+}
+.button{
+  border-radius: 15px;
+  border: black 2px solid;
+  display:inline;
+  background-color: #110;
+  outline: none;
+  margin:10px;
+
+}
+#poemInput{
+  border-radius: 15px;
+  border: black 2px solid;
+  outline: none;
+  resize: none;
+}
+#bpmInput{
+  border-radius: 15px;
+  border: black 2px solid;
+  outline: none;
+  resize: none;
+  width: 85px;
+  padding: 5px;
+}
+
+#leftSide{
+  float:left;
+  width:25%;
+}
+
+.selectOptions{
+  border: #110 2px solid;
+  border-radius: 15px;
+  outline: none;
+}
+
+.disabledBooty{
+  opacity:.2;
+  cursor:default;
+}
+
+input{
+  border-radius: 15px;
+  border: black 2px solid;
+  outline: none;
+  padding: 5px;
+}
+
+*{
+  font-family: monospace;
+  color:#110;
+  background-color:#110;
+  }
+
+html, body{
+  min-height: 100%;
+}
+body{
+  position: relative;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+   /*dim the background*/
+}.

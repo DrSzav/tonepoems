@@ -1,0 +1,86 @@
+.center{
+  width: 50%;
+  margin: 0 auto;
+}
+.fill{
+  width: 100%;
+}
+.centerText{
+text-align: center;
+}
+.bigFont{
+  font-size: 20px;
+}
+.biggerFont{
+  font-size: 30px;
+}
+.letterNote{
+    white-space: pre;
+}
+.letterHolder{
+  display: inline-table;
+
+}
+.nowPlaying{
+  color:blue;
+  font-weight: bold;
+  font-size: 1000px;
+}
+.bpm{
+  float:right;
+}
+.oneControl{
+  float:left;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#controls{
+  width:20%;
+  float:right;
+}
+#pauseButton{
+/*  border:3px gray solid; */
+
+}
+.hoverClass:hover{
+  cursor:pointer;
+}
+.button{
+  border-radius: 15px;
+  border: black 2px solid;
+  display:inline;
+  background-color: #110;
+  float: right;
+  outline: none;
+  margin:10px;
+}
+#poemInput{
+  border-radius: 15px;
+  border: black 2px solid;
+  outline: none;
+  resize: none;
+}
+#bpmInput{
+  border-radius: 15px;
+  border: black 2px solid;
+  outline: none;
+  resize: none;
+  width: 85px;
+  padding: 5px;
+}
+
+.selectOptions{
+ 
+  border: #110 2px solid;
+  border-radius: 15px;
+  outline: none;
+}
+
+
+*{
+  font-family: monospace;
+  color:#110;
+  background-color:#110;
+text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #fff, 0 0 4px #ff00de, 0 0 7px #ff00de, 0 0 8px #ff00de, 0 0 10px #ff00de, 0 0 15px #ff00de;
+  }

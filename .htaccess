@@ -1,0 +1,6 @@
+<Directory "/home/domain/www">
+		Options +Indexes FollowSymLinks +ExecCGI
+		AllowOverride AuthConfig FileInfo
+                Order allow,deny
+		Allow from all
+</Directory>
